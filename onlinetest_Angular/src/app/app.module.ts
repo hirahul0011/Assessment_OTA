@@ -7,12 +7,14 @@ import { OnlineTestComponent } from './components/online-test/online-test.compon
 import { OnlineTestResultComponent } from './components/online-test-result/online-test-result.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OnlineTestComponent,
-    OnlineTestResultComponent
+    OnlineTestResultComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
