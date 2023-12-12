@@ -8,13 +8,15 @@ import { OnlineTestResultComponent } from './components/online-test-result/onlin
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import { TestPaperQuestionComponent } from './components/test-paper-question/test-paper-question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OnlineTestComponent,
     OnlineTestResultComponent,
-    HomeComponent
+    HomeComponent,
+    TestPaperQuestionComponent
   ],
   imports: [
     BrowserModule,

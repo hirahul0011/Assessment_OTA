@@ -1,5 +1,7 @@
 package com.sl.assessment.onlinetest.model;
 
+import java.sql.Blob;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,16 +29,16 @@ public class TestPaperQuestion {
 	private String QT8;
 	private String QT9;
 	private String QT10;
-	private String I1;
-	private String I2;
-	private String I3;
-	private String I4;
-	private String I5;
-	private String I6;
-	private String I7;
-	private String I8;
-	private String I9;
-	private String I10;
+	private byte[] I1;
+	private byte[] I2;
+	private byte[] I3;
+	private byte[] I4;
+	private byte[] I5;
+	private byte[] I6;
+	private byte[] I7;
+	private byte[] I8;
+	private byte[] I9;
+	private byte[] I10;
 	private String O1;
 	private String O2;
 	private String O3;
@@ -160,64 +162,64 @@ public class TestPaperQuestion {
 	public void setQT10(String qT10) {
 		QT10 = qT10;
 	}
-	public String getI1() {
+	public byte[] getI1() {
 		return I1;
 	}
-	public void setI1(String i1) {
+	public void setI1(byte[] i1) {
 		I1 = i1;
 	}
-	public String getI2() {
+	public byte[] getI2() {
 		return I2;
 	}
-	public void setI2(String i2) {
+	public void setI2(byte[] i2) {
 		I2 = i2;
 	}
-	public String getI3() {
+	public byte[] getI3() {
 		return I3;
 	}
-	public void setI3(String i3) {
+	public void setI3(byte[] i3) {
 		I3 = i3;
 	}
-	public String getI4() {
+	public byte[] getI4() {
 		return I4;
 	}
-	public void setI4(String i4) {
+	public void setI4(byte[] i4) {
 		I4 = i4;
 	}
-	public String getI5() {
+	public byte[] getI5() {
 		return I5;
 	}
-	public void setI5(String i5) {
+	public void setI5(byte[] i5) {
 		I5 = i5;
 	}
-	public String getI6() {
+	public byte[] getI6() {
 		return I6;
 	}
-	public void setI6(String i6) {
+	public void setI6(byte[] i6) {
 		I6 = i6;
 	}
-	public String getI7() {
+	public byte[] getI7() {
 		return I7;
 	}
-	public void setI7(String i7) {
+	public void setI7(byte[] i7) {
 		I7 = i7;
 	}
-	public String getI8() {
+	public byte[] getI8() {
 		return I8;
 	}
-	public void setI8(String i8) {
+	public void setI8(byte[] i8) {
 		I8 = i8;
 	}
-	public String getI9() {
+	public byte[] getI9() {
 		return I9;
 	}
-	public void setI9(String i9) {
+	public void setI9(byte[] i9) {
 		I9 = i9;
 	}
-	public String getI10() {
+	public byte[] getI10() {
 		return I10;
 	}
-	public void setI10(String i10) {
+	public void setI10(byte[] i10) {
 		I10 = i10;
 	}
 	public String getO1() {

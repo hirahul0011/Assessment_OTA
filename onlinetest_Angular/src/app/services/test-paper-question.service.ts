@@ -28,6 +28,26 @@ export class TestPaperQuestionService {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
+  updateAnswerSelected(data: any[],tpq:any): void {
+    for(let i=0;i<data.length;i++){        
+      // this.http.patch(`${baseUrl}/`+(i+1)+`.as1`, data[i]);
+      // this.http.patch(`${baseUrl}/`+(i+1), data[i]);
+
+      this.get(i+1).subscribe({
+        next:(dt)=>{
+          tpq=dt;
+          console.log(dt);
+        },
+        error:(e)=>console.error(e)
+      });
+      tpq.as1=data[i];
+      this.http.put(`${baseUrl}/${i}`, tpq);
+
+      // this.http.post((`${baseUrl}/($i+1)`).update({as1:data[i]}) );
+    }
+    // return this.http.put(`${baseUrl}`, data);
+  }
+
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
