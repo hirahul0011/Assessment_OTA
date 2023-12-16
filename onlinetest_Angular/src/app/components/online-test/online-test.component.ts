@@ -53,11 +53,6 @@ export class OnlineTestComponent implements OnInit {
     this.currentIndex=index;
   }
 
-  submit(userForm:any){
-    console.log('Form Submitted!',userForm);
-
-    this.testPaperQuestionService.updateAnswerSelected(userForm.value,this.testPaperQuestion);
-    
-  }
+  
 
 }

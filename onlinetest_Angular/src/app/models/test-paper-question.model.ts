@@ -54,6 +54,6 @@ export class TestPaperQuestion {
     as8?:string;
     as9?:string;
     as10?:string;
-    score?:string;
-    scoreinexam?:string;
+    score?:number;
+    scoreinexam?:number;
 }

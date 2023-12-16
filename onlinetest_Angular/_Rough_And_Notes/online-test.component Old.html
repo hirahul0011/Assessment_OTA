@@ -1,0 +1,174 @@
+<!-- <p>online-test works!</p> -->
+
+<div class="list row">
+
+    <!-- <div class="col-md-8">        
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="retrieveTestPaperQuestions()"
+            >
+              Start
+            </button>
+          </div>        
+    </div> -->
+
+    <form #userForm="ngForm" (ngSubmit)="submit(userForm)">    
+        <div class="col-md-18">
+            <h4>Questions</h4>
+            <!-- <ul class="list-group"> -->
+            <!-- <li 
+                class="list-group-item" 
+                *ngFor="let testPaperQuestion of testPaperQuestions; let i = index"
+                [class.active]="i == currentIndex"
+                (click)="setActiveTestPaperQuestion(testPaperQuestion, i)"
+            >           -->
+            <li 
+                class="list-group-item" 
+                *ngFor="let testPaperQuestion of testPaperQuestions; let i = index"            
+            >  
+                <!-- {{testPaperQuestion|json}} -->                  
+                <b>{{(i+1)}}</b>.
+                <div *ngIf="testPaperQuestion.qt1"><div [innerHTML]="testPaperQuestion.qt1"></div><br></div>                                                         
+                <!-- <div [innerHTML]="testPaperQuestion.i1"></div><br> -->
+                <div *ngIf="testPaperQuestion.i1!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i1)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt2"><div [innerHTML]="testPaperQuestion.qt2"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i2"></div><br> -->
+                <div *ngIf="testPaperQuestion.i2!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i2)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt3"><div [innerHTML]="testPaperQuestion.qt3"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i3"></div><br> -->
+                <div *ngIf="testPaperQuestion.i3!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i3)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt4"><div [innerHTML]="testPaperQuestion.qt4"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i4"></div><br> -->
+                <div *ngIf="testPaperQuestion.i4!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i4)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt5"><div [innerHTML]="testPaperQuestion.qt5"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i5"></div><br> -->
+                <div *ngIf="testPaperQuestion.i5!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i5)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt6"><div [innerHTML]="testPaperQuestion.qt6"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i6"></div><br> -->
+                <div *ngIf="testPaperQuestion.i6!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i6)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt7"><div [innerHTML]="testPaperQuestion.qt7"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i7"></div><br> -->
+                <div *ngIf="testPaperQuestion.i7!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i7)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt8"><div [innerHTML]="testPaperQuestion.qt8"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i8"></div><br> -->
+                <div *ngIf="testPaperQuestion.i8!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i8)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt9"><div [innerHTML]="testPaperQuestion.qt9"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i9"></div><br> -->
+                <div *ngIf="testPaperQuestion.i9!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i9)"><br><br>
+                </div>
+                <div *ngIf="testPaperQuestion.qt10"><div [innerHTML]="testPaperQuestion.qt10"></div><br></div>                
+                <!-- <div [innerHTML]="testPaperQuestion.i10"></div><br> -->
+                <div *ngIf="testPaperQuestion.i10!=null">
+                    <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg;base64,' +testPaperQuestion.i10)"><br><br>
+                </div>
+                
+                    <div *ngIf="testPaperQuestion.a1 && testPaperQuestion.a2">
+                        <div class="form-group">     
+                        <div class="checkbox">
+                            <!-- <label for="{{'as'+(i+1)}}">                 -->
+                                <div *ngIf="testPaperQuestion.o1">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o1" ngModel type="checkbox">{{testPaperQuestion.o1}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o2">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o2" ngModel type="checkbox">{{testPaperQuestion.o2}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o3">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o3" ngModel type="checkbox">{{testPaperQuestion.o3}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o4">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o4" ngModel type="checkbox">{{testPaperQuestion.o4}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o5">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o5" ngModel type="checkbox">{{testPaperQuestion.o5}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o6">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o6" ngModel type="checkbox">{{testPaperQuestion.o6}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o7">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o7" ngModel type="checkbox">{{testPaperQuestion.o7}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o8">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o8" ngModel type="checkbox">{{testPaperQuestion.o8}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o9">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o9" ngModel type="checkbox">{{testPaperQuestion.o9}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o10">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o10" ngModel type="checkbox">{{testPaperQuestion.o10}} <br>
+                                </div>                                   
+                            <!-- </label> -->
+                        </div> 
+                        </div>               
+                    </div>
+                    
+
+                    <div *ngIf="!testPaperQuestion.a1 || !testPaperQuestion.a2">
+                        <div class="form-group">    
+                        <div class="radio">
+                            <!-- <label for="gender" *ngFor="let gender of genders"> -->
+                                <!-- <label for="{{'as'+(i+1)}}"> -->
+                                <div *ngIf="testPaperQuestion.o1">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o1" ngModel type="radio">{{testPaperQuestion.o1}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o2">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o2" ngModel type="radio">{{testPaperQuestion.o2}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o3">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o3" ngModel type="radio">{{testPaperQuestion.o3}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o4">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o4" ngModel type="radio">{{testPaperQuestion.o4}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o5">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o5" ngModel type="radio">{{testPaperQuestion.o5}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o6">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o6" ngModel type="radio">{{testPaperQuestion.o6}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o7">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o7" ngModel type="radio">{{testPaperQuestion.o7}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o8">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o8" ngModel type="radio">{{testPaperQuestion.o8}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o9">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o9" ngModel type="radio">{{testPaperQuestion.o9}} <br>
+                                </div>                                   
+                                <div *ngIf="testPaperQuestion.o10">
+                                    <input name="{{'as'+(i+1)}}" [value]="testPaperQuestion.o10" ngModel type="radio">{{testPaperQuestion.o10}} <br>
+                                </div>                                   
+                                <!-- <input name="gender" [value]="gender" ngModel type="radio">{{gender}} <br> -->
+                            <!-- </label> -->
+                        </div>
+                        </div>
+                    </div>
+                    
+                    
+                
+                <br>
+            </li>
+            <!-- </ul> -->
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>        
+        <!-- [disabled]="userForm.invalid" -->
+    </form>    
+</div>

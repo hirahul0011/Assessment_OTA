@@ -37,8 +37,7 @@ public class TestPaperController {
 
 	  @PostMapping("/testPaperQuestions")
 	  public void createTestPaperQuestion(@RequestBody TestPaperQuestion testPaperQuestion) {
-		  testPaperQuestionRepository.save(testPaperQuestion);
-	    
+		  testPaperQuestionRepository.save(testPaperQuestion);	    
 	  }
 
 //	  @PutMapping("/testPaperQuestions/{id}")
@@ -49,6 +48,23 @@ public class TestPaperController {
 //	    tpq.setTestPaper_branch(testPaperQuestion.getTestPaper_branch());
 //	    testPaperQuestionRepository.save(tpq);
 //	  }
+	  
+	  @PutMapping("/testPaperQuestions/{id}")
+	  public void updateTestPaperQuestion(@PathVariable("id") long id, @RequestBody TestPaperQuestion testPaperQuestion) {
+		TestPaperQuestion tpq=getTestPaperQuestionById(id);
+		tpq.setAS1(testPaperQuestion.getAS1());
+	    tpq.setAS2(testPaperQuestion.getAS2());
+	    tpq.setAS3(testPaperQuestion.getAS3());
+	    tpq.setAS4(testPaperQuestion.getAS4());
+	    tpq.setAS5(testPaperQuestion.getAS5());
+	    tpq.setAS6(testPaperQuestion.getAS6());
+	    tpq.setAS7(testPaperQuestion.getAS7());
+	    tpq.setAS8(testPaperQuestion.getAS8());
+	    tpq.setAS9(testPaperQuestion.getAS9());
+	    tpq.setAS10(testPaperQuestion.getAS10());
+	    tpq.setSCORE(testPaperQuestion.getSCORE());
+	    testPaperQuestionRepository.save(tpq);
+	  }
 
 	  @DeleteMapping("/testPaperQuestions/{id}")
 	  public void deleteTestPaperQuestion(@PathVariable("id") long id) {
@@ -57,8 +73,7 @@ public class TestPaperController {
 
 	  @DeleteMapping("/testPaperQuestions")
 	  public void deleteAllTestPaperQuestions() {
-		  testPaperQuestionRepository.deleteAll();
-	    
+		  testPaperQuestionRepository.deleteAll();	    
 	  }
 
 }
